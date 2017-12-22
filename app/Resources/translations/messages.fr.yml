@@ -1,0 +1,41 @@
+bookmarks_local:
+  main:
+    list_title: "Bookmarks"
+    title: "Bookmark"
+    new_title: "Ajouter un bookmark"
+    edit_title: "Editer une bookmark"
+    edit: "Editer"
+    delete: "Supprimer"
+    delete_title: "Supprimer une bookmark"
+    project_name: "Gestion des bookmarks"
+    retour: "Retour"
+    enterUrl: "Entrez une url Flickr ou Vimeo. Exemple : http://www.flickr.com/photos/bees/2341623661/"
+    form:
+      title: "Titre"
+      url: "Url"
+      authorName: "Auteur"
+      addDate: "Date d'ajout"
+      width: "Largeur"
+      height: "Hauteur"
+      title: Titre de la bookmark
+      duration: Durée
+      save: "Sauvegarder"
+      add: "Ajouter"
+tag_local:
+  main:
+    list_title: "Tags"
+    title: "Tag"
+    new_title: "Nouvel tag"
+    edit_title: "Editer un tag"
+    edit: "Editer"
+    delete: "Supprimer"
+    delete_title: "Supprimer un tag"
+    project_name: "Gestion des tags"
+    retour: "Retour"
+    liste_reponse:
+      nombre_reponse: "Il n'y a aucun tag | Il y a 1 tag | ]1, inf[ Il y a %count% tags"
+    form:
+      title: "Titre"
+      save: "Sauvegarder"
+      add: "Ajouter un tag"
+      delete: "Supprimer"

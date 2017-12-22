@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'bookmarks_local.main.title' |trans}}{% endblock %}
+{% block body %}
+    <div class="content">
+        <div class="wrapper">
+            <div class="container">
+                <h1>{{ 'bookmarks_local.main.title'|trans }}</h1>
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    {{ form_row(form.url) }}
+                    {{ form_row(form.title) }}
+                    {{ form_row(form.authorName) }}
+                    {{ form_row(form.width) }}
+                    {{ form_row(form.height) }}
+                    {{ form_row(form.tags) }}
+                    {% if form.duration is defined %}
+                    {{ form_row(form.duration) }}
+                    {% endif %}
+
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $("[id*='bookmark_tags']").tagEditor({{ form.tags|json_encode()}});
+                        });
+                    </script>
+
+                    {{ form_row(form.save, { 'label': 'bookmarks_local.main.form.save', 'attr': {'class': 'btn btn-success'} }) }}
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

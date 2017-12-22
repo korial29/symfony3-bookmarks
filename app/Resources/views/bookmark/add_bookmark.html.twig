@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+	{{ form_errors(form) }}
+	{{ form_row(form.url) }}
+	<div class="panel panel-default">
+		<div class="panel-body  bg-success">
+			<span class="glyphicon glyphicon-exclamation-sign"></span> {{ 'bookmarks_local.main.enterUrl'|trans }}
+		</div>
+	</div>
+	{{ form_row(form.save, { 'attr': {'class': 'btn btn-success'} }) }}
+{{ form_end(form) }}
+<hr>

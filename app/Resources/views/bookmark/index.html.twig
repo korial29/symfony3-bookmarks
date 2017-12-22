@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'bookmarks_local.main.project_name'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <div class="wrapper">
+            <div class="container">
+                <h1>{{ 'bookmarks_local.main.list_title'|trans }}</h1>
+
+                <!-- Add bookmark form -->
+                {% include '::bookmark/add_bookmark.html.twig' with {'form': form} only %}
+
+                <!-- list bookmarks with datatables -->
+                <script type="text/javascript">
+                    $(document).ready(function(){
+                        $('#example').DataTable({
+                            "language": {
+                                "url": "{{ asset('assets/js/datatables/lang/jquery.datatables.fr.lang') }}"
+                            },
+                            columns: [
+                                { title: "{{ 'bookmarks_local.main.form.title' | trans }}" },
+                                { title: "{{ 'bookmarks_local.main.form.authorName' | trans }}" },
+                                { title: "{{ 'bookmarks_local.main.form.addDate' | trans }}" },
+                                { title: "" },
+                            ]
+                        });
+                    });
+                </script>
+                {% if bookmarks|length %}
+                <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                    <tbody>
+                        {% for bookmark in bookmarks %}
+                            <tr>
+                                <td>
+                                    {{bookmark.title}}
+                                </td>
+                                <td>{{bookmark.authorName}}</td>
+                                <td>{{bookmark.addDate}}</td>
+                                <td>
+                                    <span class="pull-right button-group">
+                                        <a href="{{ path('updateBookmark', {'id' : bookmark.id}) }}" class="btn btn-warning">
+                                            <span class="glyphicon glyphicon-edit"></span> {{ 'bookmarks_local.main.edit'|trans }}
+                                        </a>
+                                        <a href="{{ path('deleteBookmark', {'id' : bookmark.id}) }}" class="btn btn-danger">
+                                            <span class="glyphicon glyphicon-remove"></span> {{ 'bookmarks_local.main.delete'|trans }}
+                                        </a>
+                                    </span>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

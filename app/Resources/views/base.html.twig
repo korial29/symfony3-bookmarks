@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {% stylesheets 'assets/css/*' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% javascripts 'assets/js/jquery/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'assets/js/bootstrap/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'assets/js/datatables/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'assets/js/datatables/dependencies/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'assets/js/tagEditor/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts 'assets/js/tagEditor/dependencies/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    </head>
+    <body>
+        {% include 'bookmark/navbar.html.twig' %}
+        {% block search %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

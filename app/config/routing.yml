@@ -1,0 +1,15 @@
+app:
+    resource: "@AppBundle/Controller/BookmarkController.php"
+    type:     annotation
+
+app2:
+    resource: "@AppBundle/Controller/TagController.php"
+    type:     annotation
+
+bookmarks:
+    type:     rest
+    resource: "@AppBundle/Controller/BookmarkRESTController.php"
+
+ingredients:
+    type:     rest
+    resource: "@AppBundle/Controller/TagRESTController.php"
